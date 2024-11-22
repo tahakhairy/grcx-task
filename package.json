@@ -3,12 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "homepage": "https://tahakhairy.github.io/grcx-task/",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
-    "type-check": "vue-tsc --build --force"
+    "type-check": "vue-tsc --build --force",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "axios": "^1.7.7",
@@ -20,6 +23,7 @@
     "@types/node": "^22.9.0",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vue/tsconfig": "^0.5.1",
+    "gh-pages": "^6.2.0",
     "npm-run-all2": "^7.0.1",
     "typescript": "~5.6.3",
     "vite": "^5.4.10",
