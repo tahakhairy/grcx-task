@@ -1,5 +1,7 @@
 export default class InterceptorHelper {
-  private static baseUrl = 'http://139.162.137.167/api/'
+  private static baseUrl = import.meta.env.VITE_APP_API_URL
+    ? import.meta.env.VITE_APP_API_URL
+    : '/api/'
 
   static async interceptRequest(
     options: RequestInit = {}
@@ -11,7 +13,8 @@ export default class InterceptorHelper {
     }
     options.credentials = 'include'
     options.mode = 'cors'
-    options.referrerPolicy = "unsafe-url"
+    // options.referrerPolicy = "unsafe-url"
+    console.log(options)
     return options
   }
 
