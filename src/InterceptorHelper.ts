@@ -11,10 +11,8 @@ export default class InterceptorHelper {
       Accept: 'application/json',
       ...options.headers
     }
-    options.credentials = 'include'
-    options.mode = 'cors'
-    // options.referrerPolicy = "unsafe-url"
-    console.log(options)
+    // options.credentials = 'include'
+    // options.mode = 'same-origin'
     return options
   }
 
