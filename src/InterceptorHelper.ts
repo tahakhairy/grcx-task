@@ -11,6 +11,7 @@ export default class InterceptorHelper {
     }
     options.credentials = 'include'
     options.mode = 'cors'
+    options.referrerPolicy = "unsafe-url"
     return options
   }
 
