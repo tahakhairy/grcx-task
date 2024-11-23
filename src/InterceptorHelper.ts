@@ -1,7 +1,5 @@
 export default class InterceptorHelper {
-  private static baseUrl = import.meta.env.VITE_APP_API_URL
-    ? import.meta.env.VITE_APP_API_URL
-    : '/api/'
+  private static baseUrl = `${import.meta.env.VITE_APP_API_URL}/api/`
 
   static async interceptRequest(
     options: RequestInit = {}
@@ -11,8 +9,8 @@ export default class InterceptorHelper {
       Accept: 'application/json',
       ...options.headers
     }
-    // options.credentials = 'include'
-    // options.mode = 'same-origin'
+    options.credentials = 'include'
+    options.mode = 'cors'
     return options
   }
 
