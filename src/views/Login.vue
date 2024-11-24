@@ -6,12 +6,14 @@ import Label from '@/components/ui/label/Label.vue'
 import axios from 'axios'
 import router from '@/router'
 
+const apiurl = import.meta.env.VITE_APP_API_URL
+
 const usr = ref('')
 const pwd = ref('')
 
 const onSubmit = async () => {
   if (usr.value && pwd.value) {
-    const res = await axios.post('api/method/login', {
+    const res = await axios.post(`${apiurl}/api/method/login`, {
       usr: usr.value,
       pwd: pwd.value
     })

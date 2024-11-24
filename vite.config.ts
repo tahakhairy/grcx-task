@@ -23,12 +23,11 @@ export default defineConfig(({ mode }) => {
       }
     },
     server: {
-      port: 3000,
       proxy: {
         '/api': {
           target: env.VITE_APP_API_URL,
           changeOrigin: true,
-          // rewrite: (path) => path.replace(/^\/\//, ''),
+          rewrite: (path) => path.replace(/^\/\//, ''),
           secure: false
         }
       }
