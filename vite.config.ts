@@ -9,7 +9,7 @@ import tailwind from 'tailwindcss'
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
-
+  const isDev = mode === 'development'
   return {
     css: {
       postcss: {
@@ -25,8 +25,8 @@ export default defineConfig(({ mode }) => {
     server: {
       proxy: {
         '/api': {
-          target: env.VITE_APP_API_URL,
-          changeOrigin: true,
+          target: isDev ? 'http://139.162.137.167/' : 'http://139.162.137.167/',
+          changeOrigin: isDev,
           // rewrite: (path) => path.replace(/^\/api/, ''),
           secure: false
         }
