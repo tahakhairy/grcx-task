@@ -11,15 +11,10 @@ const pwd = ref('')
 
 const onSubmit = async () => {
   if (usr.value && pwd.value) {
-    const res = await axios.post(
-      import.meta.env.DEV
-        ? `api/method/login`
-        : `${import.meta.env.VITE_APP_API_URL}api/method/login`,
-      {
-        usr: usr.value,
-        pwd: pwd.value
-      }
-    )
+    const res = await axios.post(`api/method/login`, {
+      usr: usr.value,
+      pwd: pwd.value
+    })
 
     if (res.status === 200) {
       router.push({ name: 'home' })

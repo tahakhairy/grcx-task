@@ -7,11 +7,7 @@ import { ref } from 'vue'
 const roles = ref()
 
 const getRoles = async () => {
-  const res = await axios.get(
-    import.meta.env.DEV
-      ? `api/resource/Role`
-      : `${import.meta.env.VITE_APP_API_URL}api/resource/Role`
-  )
+  const res = await axios.get(`api/resource/Role`)
 
   if (res.status === 200) {
     roles.value = res.data?.data
@@ -19,11 +15,7 @@ const getRoles = async () => {
 }
 
 const logout = async () => {
-  const res = await axios.post(
-    import.meta.env.DEV
-      ? `api/method/logout`
-      : `${import.meta.env.VITE_APP_API_URL}api/method/logout`
-  )
+  const res = await axios.post(`api/method/logout`)
   if (res.status === 200) {
     router.push({ name: 'login' })
   }
