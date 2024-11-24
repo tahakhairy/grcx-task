@@ -18,7 +18,6 @@ const onSubmit = async () => {
 
     if (res.status === 200) {
       router.push({ name: 'home' })
-      console.log(document.cookie)
     }
   }
 }

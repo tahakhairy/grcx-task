@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     { path: '/', name: 'login', component: () => import('@/views/Login.vue') },
     {
@@ -12,8 +12,6 @@ const router = createRouter({
           .split('; ')
           .find((row) => row.startsWith('user_id='))
           ?.split('=')[1]
-
-        console.log(userId)
 
         if (!userId || userId === 'Guest') next({ name: 'login' })
         else next()
